@@ -56,11 +56,8 @@ def send_email(username, password, recipient, subject, message):
         logger.error(f"Failed to send email: {e}")
 
 
-def main():
-    recipient = "jj.espinoza.la@gmail.com"
-    subject = "Test Email from Python"
-    message = "This is a test email sent from Python"
-
+def main(recipient, subject, message):
+    """Main function to send an email."""
     # Create IMAP server
     imap_server = create_imap_server(username, password)
     logger.info("IMAP server created and connected.")
@@ -75,4 +72,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        recipient="jj.espinoza.la@gmail.com",
+        subject="Test from Python",
+        message="from refactored code",
+    )
