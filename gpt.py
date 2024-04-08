@@ -4,6 +4,7 @@ client = OpenAI()
 
 
 def gpt3_chat(content):
+    """Generate a response to a chat message using GPT-4."""
     completion = client.chat.completions.create(
         model="gpt-4",
         messages=[

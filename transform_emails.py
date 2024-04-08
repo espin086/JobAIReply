@@ -5,6 +5,7 @@ from html import unescape
 import base64
 import pandas as pd
 from dateutil import parser
+import gpt
 
 
 def clean_email_content(content):
@@ -58,5 +59,11 @@ pd.set_option("display.max_colwidth", None)
 # Apply the cleaning function to your DataFrame
 df["cleaned_content"] = df["content"].apply(clean_email_content)
 
+
+prompt = "Respond to this emails: \n" + df["cleaned_content"][1342]
+
+response = gpt.gpt3_chat(prompt)
+
 # Display the cleaned/processed DataFrame
 print(df["cleaned_content"][1342])
+print(response)
